@@ -100,6 +100,9 @@ if(isset($_SESSION['MECHANIC']))
         redirect("appointments.php");
     }    */   
                ?>
+                          
+
+    <?php  edit_MECHANIC(); ?>
                                     </tbody>                                    
                                 </table>                                 
                             </div>

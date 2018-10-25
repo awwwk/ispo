@@ -43,6 +43,8 @@ if(isset($_SESSION['MECHANIC']))
                                                 <th scope="col">SERVICE COST</th>
                                                 <th scope="col">SERVICE DATE AVAILABLE</th>
                                                 <th scope="col">SERVICE TIME AVAILABLE</th>
+                                                <th scope="col">ACTION</th>
+
 
                                         </tr>
                                     </thead>
@@ -63,7 +65,7 @@ if(isset($_SESSION['MECHANIC']))
                     $location=$row['location'];
                     $carmodel=$row['carmodel'];
                     
-                    
+                    //SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate` FROM `serviceMQ` WHERE 1
                       
                                  
                     echo "
@@ -75,22 +77,13 @@ if(isset($_SESSION['MECHANIC']))
                                             <td>{$location}</td>
                                             <td>{$carmodel}</td>
                                               
-                                           <td>  <input class='form-control' style='width:100px;' name='spmanufacturer' type='text' aria-describedby='nameHelp' placeholder='Ksh'> </td>
+                                           <td>  <input class='form-control' style='width:100px;' name='servicecost' type='text' aria-describedby='nameHelp' placeholder='Ksh'> </td>
                                            <td>   <div class='form-group input-group date'  style='width:130px;' data-date-format='dd-mm-yyyy'>
-                                        <input type='text' class='form-control' name='date' placeholder='dd-mm-yyyy'>
-                            <script type='text/javascript'>
-                           $(function() {
-                           $('.input-group.date').datepicker({
-                           format: 'dd-mm-yyyy'
-                            });
-                            });
-                            $('.placepicker').placepicker();     
-                             </script>
-                                       
-
-                                    </div>
+                                        <input type='text' class='form-control' name='servicedate' placeholder='dd-mm-yyyy'> </div>
                                     </td>
                                            <td> <input class='form-control' style='width:100px;' name='spmanufacturer' type='text' aria-describedby='nameHelp' placeholder='Time'></td>
+
+                                           <td>  <input type='submit' name='edit_MQ' value='Save Details'class='form-control btn btn-primary'/><td>
                                         </tr>
                                        </tr>
                     "; }                                      
@@ -115,7 +108,7 @@ if(isset($_SESSION['MECHANIC']))
         redirect("appointments.php");
     }    */   
                ?>
-              
+                  <?php  edit_MQ(); ?>
 
                                     </tbody>                                    
                                 </table>                                 

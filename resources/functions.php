@@ -591,7 +591,35 @@ if (isset($_POST['submit'])) {
 }
    }
 
+ function edit_MQ(){
+if (isset($_POST['edit_MQ'])){
+                 /* $idmechanicrequest=$row['idmechanicrequest'];                                     
+                    $details=$row['details'];
+                    $dateofrequest = date ('F d, Y');
+                    $dateofservice = date('F d, Y');  
+                    $location=$row['location'];
+                    $carmodel=$row['carmodel'];
+SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate` FROM `serviceMQ` WHERE 1
+                    */
+// $dateofrequest = date('Y-m-d', strtotime($_POST['dateofrequest']));    
 
+        $idmechanicrequest =$_POST['idmechanicrequest'];
+        $details           =$_POST['details'];
+        $dateofrequest     =date('Y-m-d', strtotime($_POST['dateofrequest']));  
+        $dateofservice     =date('Y-m-d', strtotime($_POST['dateofservice']));  
+        $location          =$_POST['location'];
+        $carmodel          =$_POST['carmodel'];
+        $idcarowner        =$_POST['idcarowner'];
+        $servicecost       =$_POST['servicecost'];
+        $servicedate       =date('Y-m-d', strtotime($_POST['servicedate']));  
+
+
+     $sql = mysql_query("INSERT INTO serviceMQ( idmechanicrequest, details, location, carmodel, idcarowner, servicecost, servicedate)
+                      VALUES('{$idmechanicrequest}','{$details}','{$location}','{$carmodel}','{$idcarowner}','{$servicecost}','{$servicedate}')");
+        
+}
+
+ }
 function encrypt_decrypt($action, $string) {
     $output = false;
     $encrypt_method = "AES-256-CBC";
