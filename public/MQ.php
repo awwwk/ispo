@@ -56,9 +56,7 @@ if(isset($_SESSION['MECHANIC']))
                 confirm($query);
                 while($row=fetch_array($query))
                 {
-                    $idmechanicrequest=$row['idmechanicrequest'];
-                   // $timestamp = strtotime($date);
-                   // $formattedDate = date('F d, Y', $timestamp);                   
+                    $idmechanicrequest=$row['idmechanicrequest'];                                   
                     $details=$row['details'];
                     $dateofrequest = date ('F d, Y');
                     $dateofservice = date('F d, Y');  
@@ -69,7 +67,10 @@ if(isset($_SESSION['MECHANIC']))
                       
                                  
                     echo "
+                    
+
                       <tr>
+                      <form>
                                            
                                             <td>{$details}</td>
                                             <td>{$dateofrequest}</td>
@@ -81,11 +82,15 @@ if(isset($_SESSION['MECHANIC']))
                                            <td>   <div class='form-group input-group date'  style='width:130px;' data-date-format='dd-mm-yyyy'>
                                         <input type='text' class='form-control' name='servicedate' placeholder='dd-mm-yyyy'> </div>
                                     </td>
-                                           <td> <input class='form-control' style='width:100px;' name='spmanufacturer' type='text' aria-describedby='nameHelp' placeholder='Time'></td>
+                                           <td> <input class='form-control' style='width:100px;' name='servicetime' type='text' aria-describedby='nameHelp' placeholder='Time'></td>
 
                                            <td>  <input type='submit' name='edit_MQ' value='Save Details'class='form-control btn btn-primary'/><td>
+                                           </form>
+
                                         </tr>
-                                       </tr>
+                                        
+                                   
+                                      
                     "; }                                      
                                         ?>
 <?php

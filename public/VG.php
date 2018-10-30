@@ -2,21 +2,21 @@
 <?php
 
 
-if(isset($_SESSION['MECHANIC']))
+if(isset($_SESSION['GARAGE']))
 {
-    //SELECT `garageid`, `garagename`, `phonenumber`, `location`, `specialization`, `password` FROM `GARAGE` WHERE 1
-    $query = query("SELECT * FROM MECHANIC WHERE phonenumber ='{$_SESSION['MECHANIC']}' ");
+    //SELECT ``, ``, ``, `location`, `specialization`, `password` FROM `GARAGE` WHERE 1
+    //
+    $query = query("SELECT * FROM GARAGE WHERE phonenumber ='{$_SESSION['GARAGE']}' 
+      
+        ");
                 confirm($query);
                 while($row=fetch_array($query))
                 {
-                     $mechanicid=$row['mechanicid'];
-                    $firstname=$row['firstname'];
-                    $lastname=$row['lastname'];
+                     $garageid=$row['garageid'];
+                    $garagename=$row['garagename'];                 
                     $phonenumber=$row['phonenumber'];
                     $location=$row['location'];
-                     $experience=$row['experience'];
-                    $specialization=$row['specialization'];
-                     $garagelocated=$row['garagelocated'];
+                   $specialization=$row['specialization'];                   
                     $password=$row['password'];
                   }    
 }
@@ -25,7 +25,7 @@ if(isset($_SESSION['MECHANIC']))
 <body>
         <div class="content-wrapper">
             <div class="container">
-                <!-- SELECT `idmechanicrequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `mechanicrequest` WHERE 1 -->
+                <!-- SELECT `idgaragerequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `garagerequest` WHERE 1 -->
                 <div class="row" style="margin-top:40px; margin-bottom:140px; ">
                     <div class="col-md-12">
                         <?php display_message(); ?>
@@ -47,11 +47,16 @@ if(isset($_SESSION['MECHANIC']))
                                     </thead>
                                     <tbody>
                                         <?php
-                $query = query("SELECT * FROM mechanicrequest INNER JOIN CLIENT ON CLIENT.idcarowner=mechanicrequest.idcarowner");
+                $query = query("SELECT * FROM garagerequest INNER JOIN CLIENT ON CLIENT.idcarowner=garagerequest.idcarowner
+                    join GARAGE
+                  where GARAGE.specialization= garagerequest.carmodel
+
+                      
+                    ");
                 confirm($query);
                 while($row=fetch_array($query))
                 {
-                    $idmechanicrequest=$row['idmechanicrequest'];
+                    $idgaragerequest=$row['idgaragerequest'];
                    // $timestamp = strtotime($date);
                    // $formattedDate = date('F d, Y', $timestamp);                   
                     $details=$row['details'];

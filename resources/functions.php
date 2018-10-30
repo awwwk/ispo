@@ -591,16 +591,16 @@ if (isset($_POST['submit'])) {
 }
    }
 
- function edit_MQ(){
+ /*function edit_MQ(){
 if (isset($_POST['edit_MQ'])){
                  /* $idmechanicrequest=$row['idmechanicrequest'];                                     
                     $details=$row['details'];
                     $dateofrequest = date ('F d, Y');
                     $dateofservice = date('F d, Y');  
                     $location=$row['location'];
-                    $carmodel=$row['carmodel'];
+                    $carmodel=$row['carmodel']; 
 SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate` FROM `serviceMQ` WHERE 1
-                    */
+                    
 // $dateofrequest = date('Y-m-d', strtotime($_POST['dateofrequest']));    
 
         $idmechanicrequest =$_POST['idmechanicrequest'];
@@ -618,6 +618,49 @@ SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicec
                       VALUES('{$idmechanicrequest}','{$details}','{$location}','{$carmodel}','{$idcarowner}','{$servicecost}','{$servicedate}')");
         
 }
+
+ } */
+
+ function edit_MQ(){
+/*  $idmechanicrequest=$row['idmechanicrequest'];                                   
+                    $details=$row['details'];
+                    $dateofrequest = date ('F d, Y');
+                    $dateofservice = date('F d, Y');  
+                    $location=$row['location'];
+                    $carmodel=$row['carmodel'];*/
+ global $connection;
+     if(isset($_POST['edit_MQ']))
+    {
+            
+                   
+              $idmechanicrequest = escape_string($_POST['idmechanicrequest']);
+              $details = escape_string($_POST['details']);
+              $dateofrequest = escape_string($_POST['dateofrequest']);             
+              $dateofservice = escape_string($_POST['dateofservice']);              
+              $location = escape_string($_POST['location']);  
+              $carmodel = escape_string($_POST['carmodel']);  
+            $servicecost = escape_string($_POST['servicecost']);  
+             $servicedate = escape_string($_POST['servicedate']); 
+               $servicetime = escape_string($_POST['servicetime']);  
+        
+            
+
+              
+             
+             if(strlen($spname)>0 && strlen($spmanufacturer)>0  && strlen($spmodel)>0 && strlen($spdescription)>0 && strlen($carmodel)>0 && strlen($pieces)>0 && strlen($date)>0 )
+             {
+             
+                    $query = query("INSERT INTO sparepart( spname,idcarowner,spmanufacturer,spmodel,spdescription,carmodel,pieces,date)
+                      VALUES('{$spname}','{$idcarowner}','{$spmanufacturer}','{$spmodel}','{$spdescription}','{$carmodel}','{$pieces}','{$date}')");
+                   confirm($query);
+                    
+                  
+                    redirect("../public/index.php");
+                   
+                              }    
+                              }
+        
+    
 
  }
 function encrypt_decrypt($action, $string) {
@@ -739,7 +782,7 @@ function request_garage(){
      }
 
 
-
+function edit_GQ(){}
 function request_mechanic(){
 //SELECT `idmechanicrequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `mechanicrequest` WHERE 1
  global $connection;

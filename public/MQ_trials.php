@@ -1,26 +1,9 @@
-<!DOCTYPE html>
-<?php include "includes/header.php";
-?>
-
-<body>
-
-    <div class="content-wrapper">
-        <div class="container">
-
-            <!-- Appointments-->
-            <div class="row">
-
-                <div class="col-md-12" style="margin-top:20px">
-                    <?php display_message(); ?>
-                    <div class="card text-black  mb-3">
-                        <div class="card-header bg-success text-center text-white">Enter Garage Request Details</div>
-                        <div class="card-body">
-                            <form method="post">
+ <form method="post">
                             <!--SELECT `idgaragerequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `garagerequest` WHERE 1-->
+                            <!--SELECT `idspQuotation`, `idspDealer`, `idsparepart`, `idcarowner`, `mechanicid`, `garageid`, `priceperpiece`, `totalprice`, `deliverystatus`, `manufacturer` FROM `spQuotation` WHERE 1-->
+                            <!--SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `serviceMQ` WHERE 1-->
 
-                                 
-                                   <input class="form-control" name="idcarowner" value =<?php echo $_SESSION['idcarowner'] ?> type="text" aria-describedby="nameHelp" placeholder="Enter Sparepart name" readonly hidden>
-                                    <div class="form-group">
+                                  <div class="form-group">
                                         <!-- Date input -->
                                         <label class="control-label" for="date">Reason for the Request</label>
                                         <textarea placeholder="Enter Appointment Details...." name="details" class="form-control"> </textarea>
@@ -62,25 +45,23 @@
                                     </div>
                                     <?php  request_garage(); ?>
                             </form>
-                        </div>
-                        <div class="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.container -->
-    <?php include "includes/footer.php"; ?>
-    <script src="admin/js/bootstrap-datepicker.min.js"></script>
-    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAMBzWDrliQw71M8TgMnBZAoI9UxT_Kbxw&libraries=places"></script>
-    <script src="admin/js/jquery.placepicker.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $('.input-group.date').datepicker({
-                format: "dd-mm-yyyy"
-            });
-        });
-        $(".placepicker").placepicker();
 
-    </script>
+
+
+
+                             <tr>
+                                           
+                                            <td>{$details}</td>
+                                            <td>{$dateofrequest}</td>
+                                            <td>{$dateofservice}</td>
+                                            <td>{$location}</td>
+                                            <td>{$carmodel}</td>
+                                              
+                                           <td>  <input class='form-control' style='width:100px;' name='servicecost' type='text' aria-describedby='nameHelp' placeholder='Ksh'> </td>
+                                           <td>   <div class='form-group input-group date'  style='width:130px;' data-date-format='dd-mm-yyyy'>
+                                        <input type='text' class='form-control' name='servicedate' placeholder='dd-mm-yyyy'> </div>
+                                    </td>
+                                           <td> <input class='form-control' style='width:100px;' name='spmanufacturer' type='text' aria-describedby='nameHelp' placeholder='Time'></td>
+
+                                           <td>  <input type='submit' name='edit_MQ' value='Save Details'class='form-control btn btn-primary'/><td>
+                                        </tr>
