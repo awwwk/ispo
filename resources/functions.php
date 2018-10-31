@@ -782,7 +782,33 @@ function request_garage(){
      }
 
 
-function edit_GQ(){}
+function edit_GQ(){
+   global $connection;
+     if(isset($_POST['edit_GQ'])){
+      {
+        //SELECT `idgaragerequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `garagerequest` WHERE 1
+        //SELECT `idserviceGQ`, `idgaragerequest`, `idcarowner`, `garageid`, `servicecost`, `servicedate` FROM `serviceGQ` WHERE 1
+                   
+                    $servicecost=escape_string($_POST['servicecost']);
+                    $servicedate=date('Y-m-d', strtotime($_POST['servicedate'])); 
+                    $servicetime=escape_string($_POST['servicetime']);
+
+
+
+                      if(strlen($servicecost)>0 && strlen($servicedate)>0 && strlen($servicetime)>0)
+                         {
+                    
+                    $query = query("INSERT INTO serviceGQ(servicecost, servicedate, servicetime) VALUES('{$servicecost}','{$servicedate}','{$servicetime}')");
+                    confirm($query);                   
+                    
+                    redirect("../public/VG.php");
+                   
+                                }    
+                              }
+                            }
+                          }
+
+
 function request_mechanic(){
 //SELECT `idmechanicrequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `mechanicrequest` WHERE 1
  global $connection;

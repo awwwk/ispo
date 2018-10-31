@@ -27,7 +27,7 @@ if(isset($_SESSION['GARAGE']))
                     <div class="col-md-12">
                         <?php display_message(); ?>
                         <div class="card text-black  mb-3">
-                            <div class="card-header bg-primary text-center text-white"> MECHANIC SERVICES ORDERS </div>
+                            <div class="card-header bg-primary text-center text-white"> GARAGE SERVICE ORDERS </div>
                             <div class="card-body">
                                 <table class="table table-bordered table-hover">
                                     <thead class="thead-dark">
@@ -47,8 +47,8 @@ if(isset($_SESSION['GARAGE']))
                                     </thead>
                                     <tbody>
                                         <?php
-                $query = query("SELECT * FROM garagerequest INNER JOIN CLIENT ON CLIENT.idcarowner=garagerequest.idcarowner join GARAGE
-                  where GARAGE.specialization = carmodel
+                $query = query("SELECT * FROM garagerequest INNER JOIN CLIENT ON CLIENT.idcarowner=garagerequest.idcarowner INNER JOIN GARAGE ON  GARAGE.specialization = garagerequest.carmodel
+                  
                   ");
                 confirm($query);
                 while($row=fetch_array($query))
@@ -63,35 +63,37 @@ if(isset($_SESSION['GARAGE']))
                     //SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate` FROM `serviceMQ` WHERE 1
                       
                                  
-                    echo "
-                    
-
-                      <tr>
-                      <form>
-                                           
+                    echo "<tr>                   
+                                        
                                             <td>{$details}</td>
                                             <td>{$dateofrequest}</td>
                                             <td>{$dateofservice}</td>
                                             <td>{$location}</td>
                                             <td>{$carmodel}</td>
-                                              
+                                             <form method='post'>
+                                                                               
                                            <td>  <input class='form-control' style='width:100px;' name='servicecost' type='text' aria-describedby='nameHelp' placeholder='Ksh'> </td>
                                            <td>   <div class='form-group input-group date'  style='width:130px;' data-date-format='dd-mm-yyyy'>
                                         <input type='text' class='form-control' name='servicedate' placeholder='dd-mm-yyyy'> </div>
                                     </td>
-                                           <td> <input class='form-control' style='width:100px;' name='servicetime' type='text' aria-describedby='nameHelp' placeholder='Time'></td>
+                                           <td> <input class='form-control' style='width:100px;' name='servicetime' type='text' aria-describedby='nameHelp' placeholder='hh:mm'></td>
 
-                                           <td>  <input type='submit' name='edit_GQ' value='Save Details'class='form-control btn btn-primary'/><td>
-                                           </form>
+                                           <td>  <input type='submit' name='edit_GQ' value='Save Details' class='form-control btn btn-primary'/></td>
+                                           
+                                       </form>
+                                        
+                                 </tr>          
 
-                                        </tr>
+                                        
                                         
                                    
                                       
                     "; }                                      
                                         ?>
-<?php/*
+                                        
 
+                                       <?php
+/*
                    //posting a comment to the database 
                    if(isset($_POST['add']))
                     {          
@@ -110,6 +112,7 @@ if(isset($_SESSION['GARAGE']))
         redirect("appointments.php");
     }    */
                ?>
+                <?php  edit_GQ(); ?>
                 
 
                                     </tbody>                                    
