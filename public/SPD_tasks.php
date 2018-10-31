@@ -15,7 +15,7 @@
   <center>
         
           
-         <a  href="VM.php" ><img style="padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;"  src="images/spares.jpg" alt="company logo" ></a>
+         <a  href="VSPD.php" ><img style="padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;"  src="images/spares.jpg" alt="company logo" ></a>
        </center>
      </div>
          <div class=""py-5 bg-dark">

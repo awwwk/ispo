@@ -47,7 +47,11 @@ if(isset($_SESSION['SPD']))
                                     </thead>
                                     <tbody>
                                         <?php
-                $query = query("SELECT * FROM sparepart INNER JOIN CLIENT ON CLIENT.idcarowner=sparepart.idcarowner ORDER BY date DESC");
+                                        //SELECT `idspDealer`, `firstname`, `lastname`, `phonenumber`, `location`, `specialty`, `password` FROM `SPD` WHERE 1
+                                        //SELECT `idsparepart`, `idcarowner`, `spname`, `spmanufacturer`, `spmodel`, `spdescription`, `carmodel`, `pieces`, `date` FROM `sparepart` WHERE 1
+                $query = query("SELECT * FROM sparepart  INNER JOIN SPD ON SPD.specialty=sparepart.carmodel
+
+                    ORDER BY date DESC");
                 confirm($query);
                 while($row=fetch_array($query))
                 {
@@ -75,7 +79,7 @@ if(isset($_SESSION['SPD']))
                                             <td>{$pieces}</td>
                                              <td>{$date}</td>
                                             <td>{$idcarowner}</td>  
-                                            
+                                             <td>  <a class=' badge badge-success' style='padding:10px; border-radius:20px; margin-top:0px; margin-left:10px;  height:30px; width:200px; text-color:#00000 text-size:10px;'  href='SPQ.php'>WRITE QUOTATION</a>  </td>
                                     </div> 
                                            
                                         </tr>

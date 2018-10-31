@@ -56,7 +56,8 @@ if(isset($_SESSION['MECHANIC']))
                 confirm($query);
                 while($row=fetch_array($query))
                 {
-                    $idmechanicrequest=$row['idmechanicrequest'];                                   
+                    $idmechanicrequest=$row['idmechanicrequest']; 
+                     $idcarowner=$row['idcarowner'];                                   
                     $details=$row['details'];
                     $dateofrequest = date ('F d, Y');
                     $dateofservice = date('F d, Y');  
@@ -64,31 +65,33 @@ if(isset($_SESSION['MECHANIC']))
                     $carmodel=$row['carmodel'];
                     
                     //SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate` FROM `serviceMQ` WHERE 1
-                      
+                      // idmechanicrequest, idcarowner, mechanicid
                                  
-                    echo "
+                    echo "<tr>
                     
 
-                      <tr>
-                      <form>
-                                           
-                                            <td>{$details}</td>
+                       <td>{$details}</td>
                                             <td>{$dateofrequest}</td>
                                             <td>{$dateofservice}</td>
                                             <td>{$location}</td>
                                             <td>{$carmodel}</td>
-                                              
+
+                                             <form method='post'>
+                                       <input class='form-control' name='idmechanicrequest' value ={$idmechanicrequest} type='text' aria-describedby='nameHelp' placeholder='Enter idmechanicrequest' readonly hidden> 
+                                       <input class='form-control' name='idcarowner' value ={$idcarowner} type='text' aria-describedby='nameHelp' placeholder='Enter idcarowner ' readonly hidden> 
+                                         <input class='form-control' name='mechanicid' value ={$mechanicid} type='text' aria-describedby='nameHelp' placeholder='Enter mechanicid' readonly hidden> 
+
+                                                           
                                            <td>  <input class='form-control' style='width:100px;' name='servicecost' type='text' aria-describedby='nameHelp' placeholder='Ksh'> </td>
                                            <td>   <div class='form-group input-group date'  style='width:130px;' data-date-format='dd-mm-yyyy'>
                                         <input type='text' class='form-control' name='servicedate' placeholder='dd-mm-yyyy'> </div>
                                     </td>
-                                           <td> <input class='form-control' style='width:100px;' name='servicetime' type='text' aria-describedby='nameHelp' placeholder='Time'></td>
+                                           <td> <input class='form-control' style='width:100px;' name='servicetime' type='text' aria-describedby='nameHelp' placeholder='hh:mm'></td>
 
-                                           <td>  <input type='submit' name='edit_MQ' value='Save Details'class='form-control btn btn-primary'/><td>
-                                           </form>
-
+                                           <td>  <input type='submit' name='edit_MQ' value='Save Details' class='form-control btn btn-primary'/></td>
+                                           
+                                       </form>
                                         </tr>
-                                        
                                    
                                       
                     "; }                                      

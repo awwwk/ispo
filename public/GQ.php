@@ -53,7 +53,8 @@ if(isset($_SESSION['GARAGE']))
                 confirm($query);
                 while($row=fetch_array($query))
                 {
-                    $idgaragerequest=$row['idgaragerequest'];                                   
+                    $idgaragerequest=$row['idgaragerequest'];   
+                      $idcarowner=$row['idcarowner'];                                
                     $details=$row['details'];
                     $dateofrequest = date ('F d, Y');
                     $dateofservice = date('F d, Y');  
@@ -61,7 +62,7 @@ if(isset($_SESSION['GARAGE']))
                     $carmodel=$row['carmodel'];
                     
                     //SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate` FROM `serviceMQ` WHERE 1
-                      
+                      // idgaragerequest, idcarowner, garageid
                                  
                     echo "<tr>                   
                                         
@@ -70,8 +71,14 @@ if(isset($_SESSION['GARAGE']))
                                             <td>{$dateofservice}</td>
                                             <td>{$location}</td>
                                             <td>{$carmodel}</td>
+
                                              <form method='post'>
-                                                                               
+                                       <input class='form-control' name='idgaragerequest' value ={$idgaragerequest} type='text' aria-describedby='nameHelp' placeholder='Enter idgaragerequest' readonly hidden> 
+                                       <input class='form-control' name='idcarowner' value ={$idcarowner} type='text' aria-describedby='nameHelp' placeholder='Enter idcarowner ' readonly hidden> 
+                                         <input class='form-control' name='garageid' value ={$garageid} type='text' aria-describedby='nameHelp' placeholder='Enter garageid 
+                                         ' readonly hidden> 
+
+                                                           
                                            <td>  <input class='form-control' style='width:100px;' name='servicecost' type='text' aria-describedby='nameHelp' placeholder='Ksh'> </td>
                                            <td>   <div class='form-group input-group date'  style='width:130px;' data-date-format='dd-mm-yyyy'>
                                         <input type='text' class='form-control' name='servicedate' placeholder='dd-mm-yyyy'> </div>

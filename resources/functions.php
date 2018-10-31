@@ -621,13 +621,15 @@ SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicec
 
  } */
 
- function edit_MQ(){
+ function edit_MQ1(){
 /*  $idmechanicrequest=$row['idmechanicrequest'];                                   
                     $details=$row['details'];
                     $dateofrequest = date ('F d, Y');
                     $dateofservice = date('F d, Y');  
                     $location=$row['location'];
                     $carmodel=$row['carmodel'];*/
+
+                    //   // idgaragerequest, idcarowner, garageid
  global $connection;
      if(isset($_POST['edit_MQ']))
     {
@@ -788,17 +790,20 @@ function edit_GQ(){
       {
         //SELECT `idgaragerequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `garagerequest` WHERE 1
         //SELECT `idserviceGQ`, `idgaragerequest`, `idcarowner`, `garageid`, `servicecost`, `servicedate` FROM `serviceGQ` WHERE 1
-                   
-                    $servicecost=escape_string($_POST['servicecost']);
+        // idgaragerequest, idcarowner, garageid          
+                    $idgaragerequest=escape_string($_POST['idgaragerequest']);
+                     $idcarowner=escape_string($_POST['idcarowner']);
+                      $garageid=escape_string($_POST['garageid']);
+                       $servicecost=escape_string($_POST['servicecost']);
                     $servicedate=date('Y-m-d', strtotime($_POST['servicedate'])); 
                     $servicetime=escape_string($_POST['servicetime']);
 
 
 
-                      if(strlen($servicecost)>0 && strlen($servicedate)>0 && strlen($servicetime)>0)
+                      if(strlen($idgaragerequest)>0 && strlen($idcarowner)>0 && strlen($garageid)>0 && strlen($servicecost)>0 && strlen($servicedate)>0 && strlen($servicetime)>0)
                          {
                     
-                    $query = query("INSERT INTO serviceGQ(servicecost, servicedate, servicetime) VALUES('{$servicecost}','{$servicedate}','{$servicetime}')");
+                    $query = query("INSERT INTO serviceGQ(idgaragerequest,idcarowner,garageid,servicecost, servicedate, servicetime) VALUES('{$idgaragerequest}','{$idcarowner}','{$garageid}','{$servicecost}','{$servicedate}','{$servicetime}')");
                     confirm($query);                   
                     
                     redirect("../public/VG.php");
@@ -807,8 +812,62 @@ function edit_GQ(){
                               }
                             }
                           }
+function edit_MQ(){
+   global $connection;
+     if(isset($_POST['edit_MQ'])){
+      {
+        //SELECT `idgaragerequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `garagerequest` WHERE 1
+        //SELECT `idserviceGQ`, `idgaragerequest`, `idcarowner`, `garageid`, `servicecost`, `servicedate` FROM `serviceGQ` WHERE 1
+         // idmechanicrequest, idcarowner, mechanicid      
+                    $idmechanicrequest=escape_string($_POST['idmechanicrequest']);
+                     $idcarowner=escape_string($_POST['idcarowner']);
+                      $mechanicid=escape_string($_POST['mechanicid']);
+                       $servicecost=escape_string($_POST['servicecost']);
+                    $servicedate=date('Y-m-d', strtotime($_POST['servicedate'])); 
+                    $servicetime=escape_string($_POST['servicetime']);
 
 
+
+                      if(strlen($idmechanicrequest)>0 && strlen($idcarowner)>0 && strlen($mechanicid)>0 && strlen($servicecost)>0 && strlen($servicedate)>0 && strlen($servicetime)>0)
+                         {
+                    
+                    $query = query("INSERT INTO serviceMQ(idmechanicrequest,idcarowner,mechanicid,servicecost, servicedate, servicetime) VALUES('{$idmechanicrequest}','{$idcarowner}','{$mechanicid}','{$servicecost}','{$servicedate}','{$servicetime}')");
+                    confirm($query);                   
+                    
+                    redirect("../public/VM.php");
+                   
+                                }    
+                              }
+                            }
+                          }
+
+function edit_SPQ(){
+   global $connection;
+     if(isset($_POST['edit_SPQ'])){
+      {
+        //SELECT `idspQuotation`, `idspDealer`, `idsparepart`, `idcarowner`, `priceperpiece`, `totalprice`, `deliverystatus`, `manufacturer` FROM `spQuotation` WHERE 1   
+                    $idspDealer=escape_string($_POST['idspDealer']);
+                    $idsparepart=escape_string($_POST['idsparepart']);
+                    $idcarowner=escape_string($_POST['idcarowner']);
+                    $priceperpiece=escape_string($_POST['priceperpiece']);
+                    $totalprice=escape_string($_POST['totalprice']);                   
+                    $deliverystatus=escape_string($_POST['deliverystatus']);
+                     $manufacturer=escape_string($_POST['manufacturer']);
+
+
+
+                      if(strlen($idspDealer)>0 && strlen($idsparepart)>0 && strlen($idcarowner)>0 && strlen($priceperpiece)>0 && strlen($totalprice)>0 && strlen($deliverystatus)>0 && strlen($manufacturer)>0)
+                         {
+                    
+                    $query = query("INSERT INTO spQuotation(idspDealer,idsparepart,idcarowner,priceperpiece,totalprice, deliverystatus, manufacturer) VALUES('{$idspDealer}','{$idsparepart}','{$idcarowner}','{$priceperpiece}','{$totalprice}','{$deliverystatus}','{$manufacturer}')");
+                    confirm($query);                   
+                    
+                    redirect("../public/SPQ.php");
+                   
+                                }    
+                              }
+                            }
+                          }
 function request_mechanic(){
 //SELECT `idmechanicrequest`, `idcarowner`, `details`, `dateofrequest`, `dateofservice`, `location`, `carmodel` FROM `mechanicrequest` WHERE 1
  global $connection;
