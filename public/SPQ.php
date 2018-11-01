@@ -113,26 +113,7 @@ if(isset($_SESSION['SPD']))
                                         ?>
                                         
 
-                                       <?php
-/*
-                   //posting a comment to the database 
-                   if(isset($_POST['add']))
-                    {          
-        $details=$_POST['details'];
-        $emp_comment_text=$_POST['emp_comment_text'];
-        $userID=$_SESSION['userID'];       
-        $query = query("INSERT INTO comments(emp_comment_text,commentText,appointmentID,userID)        
-                        VALUES('{$emp_comment_text}','{$comment_text}','{$appointmentID}','{$userID}');");
-        confirm($query);        
-        set_message("<div class='alert alert-success alert-dismissible fade show' role='alert'>
-  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-    <span aria-hidden='true'>&times;</span>
-  </button>
-  Thank you for your feedback
-</div>");
-        redirect("appointments.php");
-    }    */
-               ?>
+                                   
                 <?php  edit_SPQ(); ?>
                 
 </center>

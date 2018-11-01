@@ -66,6 +66,7 @@ if(isset($_SESSION['MECHANIC']))
                     
                     //SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate` FROM `serviceMQ` WHERE 1
                       // idmechanicrequest, idcarowner, mechanicid
+                    //SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate`, `servicetime`, `MECHphonenumber` FROM `serviceMQ` WHERE 1
                                  
                     echo "<tr>
                     
@@ -80,6 +81,7 @@ if(isset($_SESSION['MECHANIC']))
                                        <input class='form-control' name='idmechanicrequest' value ={$idmechanicrequest} type='text' aria-describedby='nameHelp' placeholder='Enter idmechanicrequest' readonly hidden> 
                                        <input class='form-control' name='idcarowner' value ={$idcarowner} type='text' aria-describedby='nameHelp' placeholder='Enter idcarowner ' readonly hidden> 
                                          <input class='form-control' name='mechanicid' value ={$mechanicid} type='text' aria-describedby='nameHelp' placeholder='Enter mechanicid' readonly hidden> 
+                                          <input class='form-control' name='MECHphonenumber' value ={$_SESSION['MECHANIC']} type='text' aria-describedby='nameHelp' placeholder='Enter phonenumber' readonly hidden> 
 
                                                            
                                            <td>  <input class='form-control' style='width:100px;' name='servicecost' type='text' aria-describedby='nameHelp' placeholder='Ksh'> </td>
@@ -87,6 +89,8 @@ if(isset($_SESSION['MECHANIC']))
                                         <input type='text' class='form-control' name='servicedate' placeholder='dd-mm-yyyy'> </div>
                                     </td>
                                            <td> <input class='form-control' style='width:100px;' name='servicetime' type='text' aria-describedby='nameHelp' placeholder='hh:mm'></td>
+
+                                             
 
                                            <td>  <input type='submit' name='edit_MQ' value='Save Details' class='form-control btn btn-primary'/></td>
                                            

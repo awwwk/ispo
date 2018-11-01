@@ -27,25 +27,25 @@
     <p ><center><strong>Welcome to the car clinic<br>Order a spare-part below <br> Request  Garage & Mechanic services Below</strong></center></p>
 </div>
 
-				   <a  href='trialspareparts.php' ><img style='padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;'  src='images/spares.jpg' alt='company logo' ></a>
+				   <a  href='CVSPQ.php' ><img style='padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;'  src='images/spares.jpg' alt='company logo' ></a>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-           <a  href='garage_request.php' ><img style='padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;'  src='images/garag.jpg' alt='company logo' ></a>
+           <a  href='CVGQ.php' ><img style='padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;'  src='images/garag.jpg' alt='company logo' ></a>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-           <a  href='mechanic_booking.php' ><img style='padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;' src='images/services2.jpg' alt='company logo' ></a>
+           <a  href='CVMQ.php' ><img style='padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;' src='images/services2.jpg' alt='company logo' ></a>
               &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-            <a  href='CVQ.php' ><img style='padding:10px; border-radius:25px; margin-left:0px;  height:130px; width:200px; text-color:#00000 text-size:44px;''  src='images/order.png' alt='company logo' ></a>
+            
                             
                      
                   <div class=""py-5 bg-dark">
   <center>
         
-         <a class=" badge badge-success" style="padding:10px; border-radius:25px; margin-left:0px;  height:32px; width:200px; text-color:#00000 text-size:44px;" href="trialspareparts.php"> Order SpareParts</a> 
+         <a class=" badge badge-success" style="padding:10px; border-radius:25px; margin-left:0px;  height:32px; width:200px; text-color:#00000 text-size:44px;" href="CVSPQ.php">Spare-Parts Order Quotations</a> 
            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-            <a class=" badge badge-success" style="padding:10px; border-radius:25px; margin-left:0px;  height:32px; width:200px; text-color:#00000 text-size:44px;" href="garage_request.php"> Request Garage Services</a> 
+            <a class=" badge badge-success" style="padding:10px; border-radius:25px; margin-left:0px;  height:32px; width:200px; text-color:#00000 text-size:44px;" href="CVGQ.php">Garage Request Quotations</a> 
              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-             <a class=" badge badge-success" style="padding:10px; border-radius:25px; margin-left:0px;  height:32px; width:200px; text-color:#00000 text-size:44px;" href="mechanic_booking.php"> Request Mechanic Services</a> 
+             <a class=" badge badge-success" style="padding:10px; border-radius:25px; margin-left:0px;  height:32px; width:200px; text-color:#00000 text-size:44px;" href="CVMQ.php">Mechanic Request Quotations</a> 
              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-            <a class=" badge badge-success" style="padding:10px; border-radius:25px; margin-left:0px;  height:32px; width:200px; text-color:#00000 text-size:44px;" href="CVQ.php"> View Sent Quotations</a> 
+           
                     
                      
                    

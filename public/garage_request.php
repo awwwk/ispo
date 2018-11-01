@@ -25,7 +25,7 @@
                                         <label class="control-label" for="date">Reason for the Request</label>
                                         <textarea placeholder="Enter Appointment Details...." name="details" class="form-control"> </textarea>
                                     </div>
-                              <input class="form-control" name="idcarowner" value =<?php echo $_SESSION[' $phonenumber;'] ?> type="text" aria-describedby="nameHelp" placeholder="Enter Sparepart name" readonly hidden>
+                              <input class="form-control" name="idcarowner" value =<?php echo $_SESSION['CLIENT'] ?> type="text" aria-describedby="nameHelp" placeholder="Enter Sparepart name" readonly hidden>
 
                                   
                                     <div class="form-group">

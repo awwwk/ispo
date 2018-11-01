@@ -820,18 +820,20 @@ function edit_MQ(){
         //SELECT `idserviceGQ`, `idgaragerequest`, `idcarowner`, `garageid`, `servicecost`, `servicedate` FROM `serviceGQ` WHERE 1
          // idmechanicrequest, idcarowner, mechanicid      
                     $idmechanicrequest=escape_string($_POST['idmechanicrequest']);
-                     $idcarowner=escape_string($_POST['idcarowner']);
-                      $mechanicid=escape_string($_POST['mechanicid']);
-                       $servicecost=escape_string($_POST['servicecost']);
+                    $idcarowner=escape_string($_POST['idcarowner']);
+                    $mechanicid=escape_string($_POST['mechanicid']);
+                    $MECHphonenumber=escape_string($_POST['MECHphonenumber']);
+                    $servicecost=escape_string($_POST['servicecost']);
                     $servicedate=date('Y-m-d', strtotime($_POST['servicedate'])); 
                     $servicetime=escape_string($_POST['servicetime']);
+                  
 
 
 
-                      if(strlen($idmechanicrequest)>0 && strlen($idcarowner)>0 && strlen($mechanicid)>0 && strlen($servicecost)>0 && strlen($servicedate)>0 && strlen($servicetime)>0)
+                      if(strlen($idmechanicrequest)>0 && strlen($idcarowner)>0 && strlen($mechanicid)>0 && strlen($servicecost)>0 && strlen($servicedate)>0 && strlen($servicetime)>0 && strlen($MECHphonenumber)>0)
                          {
                     
-                    $query = query("INSERT INTO serviceMQ(idmechanicrequest,idcarowner,mechanicid,servicecost, servicedate, servicetime) VALUES('{$idmechanicrequest}','{$idcarowner}','{$mechanicid}','{$servicecost}','{$servicedate}','{$servicetime}')");
+                    $query = query("INSERT INTO serviceMQ(idmechanicrequest,idcarowner,mechanicid,servicecost, servicedate, servicetime , MECHphonenumber) VALUES('{$idmechanicrequest}','{$idcarowner}','{$mechanicid}','{$servicecost}','{$servicedate}','{$servicetime}' ,'{$MECHphonenumber}')");
                     confirm($query);                   
                     
                     redirect("../public/VM.php");
