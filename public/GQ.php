@@ -77,6 +77,8 @@ if(isset($_SESSION['GARAGE']))
                                        <input class='form-control' name='idcarowner' value ={$idcarowner} type='text' aria-describedby='nameHelp' placeholder='Enter idcarowner ' readonly hidden> 
                                          <input class='form-control' name='garageid' value ={$garageid} type='text' aria-describedby='nameHelp' placeholder='Enter garageid 
                                          ' readonly hidden> 
+                                          <input class='form-control' name='Garagephonenumber' value ={$_SESSION['GARAGE']} type='text' aria-describedby='nameHelp' placeholder='Enter Garagephonenumber 
+                                         ' readonly hidden> 
 
                                                            
                                            <td>  <input class='form-control' style='width:100px;' name='servicecost' type='text' aria-describedby='nameHelp' placeholder='Ksh'> </td>

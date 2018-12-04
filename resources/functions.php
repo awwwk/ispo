@@ -794,16 +794,17 @@ function edit_GQ(){
                     $idgaragerequest=escape_string($_POST['idgaragerequest']);
                      $idcarowner=escape_string($_POST['idcarowner']);
                       $garageid=escape_string($_POST['garageid']);
+                       $Garagephonenumber=escape_string($_POST['Garagephonenumber']);
                        $servicecost=escape_string($_POST['servicecost']);
                     $servicedate=date('Y-m-d', strtotime($_POST['servicedate'])); 
                     $servicetime=escape_string($_POST['servicetime']);
 
 
 
-                      if(strlen($idgaragerequest)>0 && strlen($idcarowner)>0 && strlen($garageid)>0 && strlen($servicecost)>0 && strlen($servicedate)>0 && strlen($servicetime)>0)
+                      if(strlen($idgaragerequest)>0 && strlen($idcarowner)>0 && strlen($garageid)>0  && strlen($Garagephonenumber)>0 && strlen($servicecost)>0 && strlen($servicedate)>0 && strlen($servicetime)>0)
                          {
                     
-                    $query = query("INSERT INTO serviceGQ(idgaragerequest,idcarowner,garageid,servicecost, servicedate, servicetime) VALUES('{$idgaragerequest}','{$idcarowner}','{$garageid}','{$servicecost}','{$servicedate}','{$servicetime}')");
+                    $query = query("INSERT INTO serviceGQ(idgaragerequest,idcarowner,garageid,Garagephonenumber,servicecost, servicedate, servicetime) VALUES('{$idgaragerequest}','{$idcarowner}','{$garageid}','{$Garagephonenumber}','{$servicecost}','{$servicedate}','{$servicetime}')");
                     confirm($query);                   
                     
                     redirect("../public/VG.php");
@@ -825,7 +826,7 @@ function edit_MQ(){
                     $MECHphonenumber=escape_string($_POST['MECHphonenumber']);
                     $servicecost=escape_string($_POST['servicecost']);
                     $servicedate=date('Y-m-d', strtotime($_POST['servicedate'])); 
-                    $servicetime=escape_string($_POST['servicetime']);
+                    $servicetime=escape_string($_POST['servicetime']); 
                   
 
 
@@ -847,10 +848,11 @@ function edit_SPQ(){
    global $connection;
      if(isset($_POST['edit_SPQ'])){
       {
-        //SELECT `idspQuotation`, `idspDealer`, `idsparepart`, `idcarowner`, `priceperpiece`, `totalprice`, `deliverystatus`, `manufacturer` FROM `spQuotation` WHERE 1   
+        //SELECT `idspQuotation`, `idspDealer`, `idsparepart`, `idcarowner`, `priceperpiece`, `totalprice`, `deliverystatus`, `manufacturer` FROM `spQuotation` WHERE 1    SPphonenumber
                     $idspDealer=escape_string($_POST['idspDealer']);
                     $idsparepart=escape_string($_POST['idsparepart']);
                     $idcarowner=escape_string($_POST['idcarowner']);
+                    $SPphonenumber=escape_string($_POST['SPphonenumber']);
                     $priceperpiece=escape_string($_POST['priceperpiece']);
                     $totalprice=escape_string($_POST['totalprice']);                   
                     $deliverystatus=escape_string($_POST['deliverystatus']);
@@ -858,10 +860,10 @@ function edit_SPQ(){
 
 
 
-                      if(strlen($idspDealer)>0 && strlen($idsparepart)>0 && strlen($idcarowner)>0 && strlen($priceperpiece)>0 && strlen($totalprice)>0 && strlen($deliverystatus)>0 && strlen($manufacturer)>0)
+                      if(strlen($idspDealer)>0 && strlen($idsparepart)>0 && strlen($idcarowner)>0 && strlen($SPphonenumber)>0 && strlen($priceperpiece)>0 && strlen($totalprice)>0 && strlen($deliverystatus)>0 && strlen($manufacturer)>0)
                          {
                     
-                    $query = query("INSERT INTO spQuotation(idspDealer,idsparepart,idcarowner,priceperpiece,totalprice, deliverystatus, manufacturer) VALUES('{$idspDealer}','{$idsparepart}','{$idcarowner}','{$priceperpiece}','{$totalprice}','{$deliverystatus}','{$manufacturer}')");
+                    $query = query("INSERT INTO spQuotation(idspDealer,idsparepart,idcarowner, SPphonenumber, priceperpiece,totalprice, deliverystatus, manufacturer) VALUES('{$idspDealer}','{$idsparepart}','{$idcarowner}', '{$SPphonenumber}','{$priceperpiece}','{$totalprice}','{$deliverystatus}','{$manufacturer}')");
                     confirm($query);                   
                     
                     redirect("../public/SPQ.php");

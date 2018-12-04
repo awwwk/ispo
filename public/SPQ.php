@@ -73,6 +73,7 @@ if(isset($_SESSION['SPD']))
                     //SELECT `idserviceMQ`, `mechanicid`, `idmechanicrequest`, `idcarowner`, `servicecost`, `servicedate` FROM `serviceMQ` WHERE 1
                       // idgaragerequest, idcarowner, garageid
                     //SELECT `idspQuotation`, `idspDealer`, `idsparepart`, `idcarowner`, `priceperpiece`, `totalprice`, `deliverystatus`, `manufacturer` FROM `spQuotation` WHERE 1
+                    //SELECT `idspQuotation`, `idspDealer`, `idsparepart`, `idcarowner`, `priceperpiece`, `totalprice`, `deliverystatus`, `manufacturer`, `SPphonenumber` FROM `spQuotation` WHERE 1
                                  
                     echo "<tr>                   
                                         
@@ -87,7 +88,10 @@ if(isset($_SESSION['SPD']))
                                              <form method='post'>
                                        <input class='form-control' name='idsparepart' value ={$idsparepart} type='text' aria-describedby='nameHelp' placeholder='Enter idgaragerequest' readonly hidden> 
                                        <input class='form-control' name='idcarowner' value ={$idcarowner} type='text' aria-describedby='nameHelp' placeholder='Enter idcarowner ' readonly hidden> 
-                                         <input class='form-control' name='idspDealer' value ={$idspDealer} type='text' aria-describedby='nameHelp' placeholder='Enter garageid 
+                                         <input class='form-control' name='SPphonenumber' value ={$_SESSION['SPD']} type='text' aria-describedby='nameHelp' placeholder='Enter garageid 
+                                         ' readonly hidden> 
+
+                                          <input class='form-control' name='idspDealer' value ={$idspDealer} type='text' aria-describedby='nameHelp' placeholder='Enter garageid 
                                          ' readonly hidden> 
 
                                                            
